@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>HTML Apprentice Elements Badge</title>
+</head>
+<body>
+	<header>
+		<h1>Picture</h1>
+	</header>
+	<section>
+		<p>This is a demonstration of a picture element. Try it on Safari to see the non-webP images and media sizing</p>
+		<picture>
+		  <source srcset="img/webpImage.webp" type="image/webp" />
+			<source srcset="http://placehold.it/100 1x, http://placehold.it/200 2x" media="(max-width: 100px)" />
+			<source srcset="http://placehold.it/300 1x, http://placehold.it/600 2x" media="(max-width: 300px)" />
+			<source srcset="http://placehold.it/600 1x, http://placehold.it/1200 2x" media="(max-width: 600px)" />
+			<source srcset="http://placehold.it/800 1x, http://placehold.it/1600 2x" media="(max-width: 800px)" />
+			<img src="http://placehold.it/1000" srcset="http://placehold.it/1000 1x, http://placehold.it/2000 2x" alt="placehold.it">
+		</picture>
+	</section>
+
+	<footer>Copyright 2017 Alex Anderson</footer>
+</body>
+</html>
