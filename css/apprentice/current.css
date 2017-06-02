@@ -42,3 +42,17 @@
   column-gap: 2em;
   column-rule: 1px solid gray;
 }
+
+#scroll-snap {
+  height: 300px;
+  width: 300px;
+  overflow-y: scroll;
+}
+
+#scroll-snap div {
+  float: left;
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  margin: 50px;
+}
