@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HTML Apprentice Device Access Badge</title>
+</head>
+<body>
+  <header>
+    <h1>Device Access: <small>Run it in Firefox for all features</small></h1>
+  </header>
+  <section>
+    <p>This is a demonstration of the device-access API</p>
+    <p>Geolocation: <span id="geolocation"></span></p>
+    <p>Device Orientation (requires mobile): <span id="orientation"></span></p>
+    <p>Device Motion (requires mobile): <span id="motion"></span></p>
+    <p>Ambient Light: <span id="light"></span></p>
+    <p>Battery Status (requires Chrome): <span id="battery"></span></p>
+  </section>
+  <footer>Copyright 2017 Alex Anderson</footer>
+  <script>
+    // Geolocation
+    navigator.geolocation.getCurrentPosition(function(position) {
+      document.querySelector('#geolocation').innerHTML = Math.round(position.coords.latitude * 1000)/1000 + ", " + Math.round(position.coords.longitude * 1000)/1000;
+    });
+
+    // Device Orientation
+    window.addEventListener('deviceorientation', handleOrientation);
+    window.addEventListener("devicemotion", handleMotion, true);
+    function handleOrientation(event) {
+      document.querySelector('#orientation').innerHTML = event.beta + ", " + event.gamma
+    }
+    function handleMotion(event) {
+      document.querySelector('#motion').innerHTML = event.acceleration.x + ", " + event.acceleration.y + ", " + event.acceleration.z;
+    }
+
+    // Ambient Light
+    window.addEventListener('devicelight', function(event) {
+      var el = document.querySelector('#light');
+
+      if (event.value < 25) {
+        el.innerHTML = 'Really Dark';
+        return;
+      } 
+      if (event.value < 50) {
+        el.innerHTML = 'Dark';
+        return;
+      }
+      if (event.value < 75) {
+        el.innerHTML = "Bright";
+        return
+      }
+      el.innerHTML = "Really Bright";
+    });
+
+    // Battery Status
+    navigator.getBattery().then(function(battery) {
+      updateLevelInfo();
+
+      battery.addEventListener('levelchange', function(){
+        updateLevelInfo();
+      });
+      function updateLevelInfo(){
+        document.querySelector('#battery').innerHTML = battery.level * 100 + "%";
+      }
+
+    });
+  </script>
+</body>
+</html>
