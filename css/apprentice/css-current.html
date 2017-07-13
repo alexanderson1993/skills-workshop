@@ -14,7 +14,7 @@
       <p>This is a demonstration of the current CSS specification</p>
       <p>This is demonstrating the Backgrounds and Borders Module</p>
       <div id="backgrounds"></div>
-      <p>This is demonstrating the conditional group rules module (AKA Media Queries and @supports)</p>
+      <p>This is demonstrating the conditional group rules module (AKA Media Queries and @supports) <small>Try resizing and printing</small></p>
       <div id="media-query"></div>
       <p>This is demonstrating the CSS Counters</p>
       <ul id="counter">
@@ -37,7 +37,7 @@
         <li>e</li>
       </ul>
       <p>This is demonstrating the multi-column layout</p>
-      <div id="multi-column">
+      <div id="multi-column" style="column-count: 4; column-width: 15em; column-gap: 2em; column-rule: 1px solid gray;">
         <div class="decl vfb" id="decla">
           <div align="center" style="font-weight:bold;">IN CONGRESS, JULY 4, 1776</div>
           <div align="center" style="font-weight:bold;">The unanimous Declarationof the thirteen unitedStates of America</div>
@@ -100,6 +100,11 @@
         <div></div>
         <div></div>
         <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
       <p>Grid Layout</p>
       <div id="grid">
@@ -109,17 +114,24 @@
         <div></div>
         <div></div>
       </div>
-      <p>Shapes</p>
-      <div id="shapes"></div>
+      <p>Shapes (Chrome only)</p>
+      <div id="shapes">
+        <div class="shape"></div>
+        <p class="text">This is just some dummy text to show that the shape of the <code>div</code> next to me is causing me to reflow around it.</p>
+      </div>
       <p>Masking</p>
-      <div id="masking"></div>
-      <p>Scroll Snap</p>
+      <div id="masking">
+        <div class="mask">Awesome text!</div>
+      </div>
+      <p>Scroll Snap (Firefox)</p>
       <div id="scroll-snap">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div class="container">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     </details>
   </section>

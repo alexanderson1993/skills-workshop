@@ -1,0 +1,25 @@
+<script>
+class OutsideComponent extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.initShadowDom();
+  }
+  
+  initShadowDom() {
+    let shadowRoot = this.attachShadow({mode: 'open'});
+    shadowRoot.innerHTML = this.template;
+  }
+  get template() {
+    return `
+    <div>
+    I'm an outside component. My file is only loaded once. I should be on the page twice, but the text should be styled inside of the first component.
+    </div>
+    `
+  }
+}
+window.customElements.define('outside-component', OutsideComponent);
+
+</script>

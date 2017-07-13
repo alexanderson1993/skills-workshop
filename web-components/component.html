@@ -1,0 +1,60 @@
+<link rel="import" href="./outside-component.html">
+<link rel="import" id="template-link" href="./template.html">
+
+<script>
+let i = 0;
+class MyComponent extends HTMLElement {
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.initShadowDom();
+    const that = this;
+    // This JavaScript is scoped to the shadow root.
+    this.shadowRoot.querySelector('#alerter').addEventListener('click', e => {
+      // Insert the template;
+      var template = that.shadowRoot.querySelector('template');
+      template.innerHTML += "<p>And I can add dynamic content too.</p>";
+        template.innerHTML += i;
+        i ++;
+        var clone = document.importNode(template.content, true);
+        that.shadowRoot.querySelector('#template-location').appendChild(clone);
+    });
+  }
+  
+  initShadowDom() {
+    let shadowRoot = this.attachShadow({mode: 'open'});
+    shadowRoot.innerHTML = this.template;
+  }
+  get template() {
+    return `
+    <style>
+    /* This style is scoped to the component itself */
+    div {
+      font-family: sans-serif;
+    }
+    div.styled {
+      color: red;
+    }
+    </style>
+    <div>
+    This is a div
+    <div class="styled">
+    <slot></slot>
+    </div>
+    Nifty.
+    <button id="alerter">Alert me</button>
+    <outside-component></outside-component>
+    <div id="template-location"></div>
+
+    <template id="mytemplate">
+    <div>This content is coming from a template</div>
+    </template>
+    </div>
+    `
+  }
+}
+window.customElements.define('my-component', MyComponent);
+
+</script>

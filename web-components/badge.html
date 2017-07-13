@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Web Components Apprentice Badge</title>
+</head>
+<body>
+  <link rel="import" href="./component.html">
+  <link rel="import" href="./outside-component.html">
+  <h1>Component Demo</h1>
+  <my-component>With my own content inside of it.</my-component>
+  <outside-component></outside-component>
+  <script>
+    console.log('Demonstration of getting the import from the link element')
+    console.log(document.querySelector('link').import);
+  </script>
+</body>
+</html>

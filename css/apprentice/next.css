@@ -1,0 +1,107 @@
+#animation {
+  width: 200px;
+  height: 200px;
+  animation: animate 2s infinite alternate;
+}
+
+@keyframes animate {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+#transform {
+  width: 200px;
+  height: 200px;
+  background-color: gray;
+  transform: rotate3d(12, 23, 1, 52deg) perspective(17px);
+  transition: transform 0.5s ease;
+  box-shadow: 5px 5px 5px black;
+
+}
+#transform:hover {
+  transform: rotate3d(2, 7.0, -13.0, 10deg) perspective(200px);
+
+}
+
+#transition {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  transition: background-color 0.5s ease;
+}
+
+
+
+#transition:hover {
+  background-color: yellow;
+}
+
+#linear {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  animation: translate 2s infinite alternate linear;
+}
+
+#ease {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  animation: translate 2s infinite alternate ease;
+}
+
+#ease-out {
+  width: 100px;
+  height: 100px;
+  background-color: cyan;
+  animation: translate 2s infinite alternate ease-out;
+}
+
+#steps {
+  width: 100px;
+  height: 100px;
+  background-color: rebeccapurple;
+  animation: translate 2s infinite alternate steps(10,end);
+}
+
+@keyframes translate {
+  from {transform: translateX(0px)}
+  to {transform: translateX(400px)}
+}
+
+#container {
+  border: 1px solid black;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+#container > div {
+  border: 1px solid blue;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+.min-content {
+  width: min-content;
+}
+
+.max-content {
+  width: max-content;
+}
+
+.fit-content {
+  width: fit-content;
+}
+
+.fill-available {
+  width: -webkit-fill-available;
+}
+
+#first-line:first-line {
+  color: tomato;
+}
+
+#letter-demo::first-letter {
+  color: green;
+  font-size: 50px;
+}
